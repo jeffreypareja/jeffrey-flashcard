@@ -1,5 +1,5 @@
 import React, {useState, useCallback} from 'react'
-import FlashCard from '../components/FlashCard'
+import FlashCard from '../shared/components/FlashCard'
 
 const FlashCardForEditing = ({ symbol, element, onEdit = () => { }, onRemove = () => { } }) => {
     let [newElement, setNewElement] = useState(element)

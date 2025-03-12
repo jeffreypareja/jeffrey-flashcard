@@ -1,22 +1,22 @@
-import React from 'react'
-import useFlashCardsManagementHook from '../FlashCardManagement/useFlashCardsManagementHook'
-import FlashCard from '../FlashCardManagement/FlashCard'
-import AddCardForm from '../FlashCardManagement/AddCardForm'
+import React, { useState } from 'react'
+import useFlashCardsGameModeHook from '../FlashCardGameModes/useFlashCardGameModeHook'
+
+import FlashCardsGameScreen from '../FlashCardGame/FlashCardGameScreen'
+import FlashCardsManagementScreen from '../FlashCardManagement/FlashCardManagementScreen'
 
 const FlashCards = () => {
-    let { cards, editCard, removeCard, addCard } = useFlashCardsManagementHook()
 
-    return (<>
-        <AddCardForm onSubmit={addCard} />
-        <div style={{
-            display: 'flex',
-            flexDirection: 'column'
-        }}>
-            {cards.map(({ symbol, element }) => {
-                return <FlashCard key={symbol} element={element} symbol={symbol} onEdit={editCard} onRemove={removeCard} />
-            })}
+    const { mode, manageCards, playCards } = useFlashCardsGameModeHook()
+
+    return <>
+        <div style = {{margin: "10px"}}>
+            <button disabled={mode === 'manage'} onClick={manageCards} > managecards</button>
+            <button disabled={mode === 'play'} onClick={playCards}> play cards</button>
         </div>
-    </>)
+
+        {mode === 'manage' ? <FlashCardsManagementScreen /> : null}
+        {mode === 'play' ? <FlashCardsGameScreen /> : null}
+    </>
 }
 
 export default FlashCards

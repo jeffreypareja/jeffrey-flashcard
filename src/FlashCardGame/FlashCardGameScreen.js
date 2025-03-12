@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react'
-import useFlashCardsGameServiceHook from '../FlashCardGame/useFlashCardGameServiceHook'
-import AnswerForm from '../FlashCardGame/AnswerForm'
+import React from 'react'
+import useFlashCardsGameServiceHook from './useFlashCardGameServiceHook'
+import AnswerForm from './AnswerForm'
 import FlashCard from '../shared/components/FlashCard'
 
-const GamePage = () => {
+const FlashCardGameScreen = () => {
     let {currentCard, checkAnswer}= useFlashCardsGameServiceHook()
 
     return <>
@@ -12,4 +12,4 @@ const GamePage = () => {
     </>
 }
 
-export default GamePage
+export default FlashCardGameScreen

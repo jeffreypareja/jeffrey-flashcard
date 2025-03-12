@@ -39,7 +39,7 @@ class FlashCardRepository{
     }
 
     pickRandomFlashCard() {
-        let randomIndex = Math.floor(0 + Math.random()*(this.flashCards.length - 0 + 1))
+        let randomIndex = Math.floor(0 + Math.random()*(this.flashCards.length - 1))
 
         return this.flashCards[randomIndex]
     }
